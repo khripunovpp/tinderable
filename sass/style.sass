@@ -1,0 +1,250 @@
+@import "bourbon"
+@import "icon.sass"
+@import "mixins"
+
+$color: #ffc5ad
+$font: 'Comfortaa', cursive
+
+html
+	box-sizing: border-box
+
+*,
+*::after,
+*::before
+	box-sizing: inherit
+	outline: none
+
+body
+	margin: 0	
+	overflow-x: hidden
+	font-family: $font
+	line-height: 1.4
+	font-size: 14px
+	background-color: #f8f8f8
+	background-image: url(../img/pattern.png)
+
+img
+	max-width: 100%	
+	border: none	
+	outline: none	
+
+a
+	border: none	
+	outline: none	
+
+ul
+	list-style-type: none	
+	margin: 0	
+	padding: 0
+
+select::-ms-expand
+	display: none
+
+.container
+	display: table
+	margin: 0 auto
+
+.stack
+	&__wrapper
+		max-width: 970px
+		display: table
+		margin-top: 50px
+	&__section
+		display: table-cell
+		vertical-align: top
+		width: 300px
+		position: relative
+	&__dislikes,
+	&__likes
+		width: 300px
+		height: 500px
+		position: relative
+		border-radius: 5px
+		overflow: hidden
+		border: 1px dashed #e2e2e2
+		&::after
+			content: ''
+			position: absolute
+			z-index: 100
+			top: 0px
+			left: 0px
+			right: 0px
+			bottom: 0px
+	&__congrat
+		display: none
+	&__loader
+		position: absolute
+		z-index: 102
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background-color: #EFEFEF
+		background-image: url(../img/heart.gif)
+		background-repeat: no-repeat
+		background-position: 50% 50%
+	&__hand
+		position: absolute
+		bottom: -68px
+		left: 50%
+		margin-left: -68px
+		width: 136px
+		height: 38px
+		border: none
+		background-color: transparent
+		background-image: url(../img/swipe-icon.png)
+
+
+.cards
+	position: relative
+	&__list
+		position: relative
+		width: 300px
+		height: 500px
+		margin: 0 30px
+	&__item
+		&.moving
+			transition: none
+	&__like,
+	&__dislike
+		position: absolute
+		z-index: 101
+		top: 50%
+		margin-top: -40px
+		width: 80px
+		height: 80px
+		border-radius: 50%
+		border: none
+		cursor: pointer
+		&::before
+			content: '\e906'
+			@extend %icon
+			color: #fff
+			font-size: 30px
+			position: relative
+			top: -4px
+	&__like
+		right: -190px
+		background-color: #48c0f7
+		background-image: linear-gradient(to bottom, #5ed8f9, #33a9f5)
+	&__dislike
+		left: -190px
+		background-color: #c70d1a
+		background-image: linear-gradient(to top, #9c040f, #f71626)
+		transform: rotate(180deg)
+
+.card
+	width: 300px
+	height: 500px
+	border-radius: 5px
+	background: white
+	position: absolute
+	transition: all .3s ease-in-out
+	background-color: #fff
+	box-shadow: 3px 3px 3px rgba(0,0,0,.08)
+	&__img
+		margin: 0 15px
+		position: relative
+		img
+			border-radius: 5px
+		&::after,
+		&::before
+			content: ''
+			position: absolute
+			width: 40px
+			height: 40px
+			background-color: #fff
+			background-image: url(../img/card-icon.png)
+			background-repeat: no-repeat
+			background-position: 50% 50%
+			border-radius: 50%
+		&::after
+			bottom: -20px
+			right: -20px
+			transform: rotate(180deg)
+		&::before
+			top: -20px
+			left: -20px
+	&__inner
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		pointer-events: none
+		padding: 30px 15px
+	&__text
+		text-align: center
+		margin: 10px 0 0
+		font-size: 18px
+	&__title
+		color: #288dce
+		font-weight: 300
+		display: block
+		margin-bottom: 5px
+	&__question
+		color: #151515
+		font-weight: 400
+
+
+.header
+	background-color: #fff
+	box-shadow: 3px 3px 3px rgba(0,0,0,.02)
+	&__inner
+		max-width: 970px
+		margin: 0 auto
+		padding: 10px 0
+		display: table
+		table-layout: fixed
+		width: 100%
+	&__section
+		display: table-cell
+		vertical-align: middle
+		&--center
+			text-align: center
+			font-size: 0
+		&--right
+			text-align: right
+	&__icon
+		display: inline-block
+		&::before
+			@extend %icon
+			font-size: 25px
+		&--menu
+			&::before
+				content: '\e900'
+				color: #131313
+		&--mail
+			position: relative
+			&::before
+				content: '\e905'
+				color: #c4c4c4
+			&::after
+				content: '1'
+				position: absolute
+				top: -2px
+				right: -2px
+				color: #fff
+				font-size: 8px
+				text-align: center
+				line-height: 13px
+				width: 12px
+				height: 12px
+				border-radius: 50%
+				background-color: #f81626
+		&--profile
+			&::before
+				content: '\e904'
+				color: #c4c4c4
+		&+&
+			margin-left: 35px
+
+
+.title
+	max-width: 970px
+	margin: 0 auto
+	text-align: center
+
+
+//ALWAYS END
+@import "media"

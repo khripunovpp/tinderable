@@ -1,0 +1,104 @@
+doctype html
+html
+
+	head
+		meta(charset='utf-8')
+		title
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+		link(rel='icon', href='img/favicon.png', type='image/png')
+		link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Comfortaa:300,400")
+		link(rel='stylesheet', href='css/style.css')
+		style.
+			*,
+			*::after,
+			*::before {
+				//- outline: 1px solid rgba(255,0,0,.5) !important
+			}
+		script(src="http://ctr-localhost.ru/vlad/jq.js")
+
+	body
+		.w-page
+			.header
+				.header__inner
+					.header__section.header__section--left
+						.header__icon.header__icon--menu
+					.header__section.header__section--center
+						img.header__logo(src="img/logo.png", alt="")
+					.header__section.header__section--right
+						.header__icon.header__icon--mail
+						.header__icon.header__icon--profile
+			.title
+				.title_inner
+					h1.title__caption Секс без обязательств
+					.title__wrapper
+						.title__left
+							.title__counter
+								.counter
+									b.counter__amount
+									|  одиноких женщин
+						.title__right
+							p.title__text Мы выберем для вас идеального партнера по сексу. #[br] Проведите пальцем или нажмите, чтобы ответить о своих предпочтениях
+			.stack
+				.container
+					.stack__loader
+					.stack__wrapper
+						.stack__section
+							.stack__dislikes
+						.stack__section
+							.stack__cards
+								.cards
+									button.cards__dislike
+									ul.cards__list
+										li.cards__item.card
+											.card__inner
+												.card__img
+													img(src="img/img1.jpg", alt="")
+										li.cards__item.card
+											.card__inner
+												.card__img
+													img(src="img/img2.jpg", alt="")
+										li.cards__item.card.card
+											.card__inner
+												.card__img
+													img(src="img/img3.jpg", alt="")
+										li.cards__item.card.card
+											.card__inner
+												.card__img
+													img(src="img/img4.jpg", alt="")
+										li.cards__item.card.card
+											.card__inner
+												.card__img
+													img(src="img/img5.jpg", alt="")
+												p.card__text
+													span.card__title Вопрос 1.
+													span.card__question Вам нравится большая грудь?
+										li.cards__item.card.card
+											.card__inner
+												.card__img
+													img(src="img/img6.jpg", alt="")
+												p.card__text
+													span.card__title Вопрос 2.
+													span.card__question Вам больше по душе молодые девушки?
+										li.cards__item.card.card
+											.card__inner
+												.card__img
+													img(src="img/img7.jpg", alt="")
+												p.card__text
+													span.card__title Вопрос 3.
+													span.card__question Вы согласны на секс втроём?
+										li.cards__item.card.card
+											.card__inner
+												.card__img
+													img(src="img/img8.jpg", alt="")
+												p.card__text
+													span.card__title Вопрос 4.
+													span.card__question Вы согласны использовать презерватив?
+									button.cards__like
+							button.stack__hand
+						.stack__section
+							.stack__likes
+					.stack__congrat Поздровляшки
+
+		script(src="js/hammer.min.js")
+		script(src="js/common.js")
