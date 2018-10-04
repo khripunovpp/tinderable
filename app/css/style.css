@@ -39,6 +39,7 @@ body {
   font-size: 14px;
   background-color: #f8f8f8;
   background-image: url(../img/pattern.png);
+  color: #131313;
 }
 
 img {
@@ -63,14 +64,19 @@ select::-ms-expand {
 }
 
 .container {
+  max-width: 970px;
   display: table;
   margin: 0 auto;
+}
+
+.stack__title {
+  margin-top: 40px;
 }
 
 .stack__wrapper {
   max-width: 970px;
   display: table;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .stack__section {
@@ -343,10 +349,46 @@ select::-ms-expand {
   margin-left: 35px;
 }
 
-.title {
-  max-width: 970px;
-  margin: 0 auto;
+.title__caption {
+  font-size: 28px;
+  margin: 0 0 15px;
   text-align: center;
+}
+
+.title__wrapper {
+  display: table;
+  width: 100%;
+}
+
+.title__left, .title__right {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.title__left {
+  width: 300px;
+  text-align: center;
+}
+
+.title__right {
+  padding-left: 30px;
+}
+
+.title__text {
+  margin: 0;
+  font-size: 18px;
+}
+
+.counter {
+  font-size: 18px;
+  font-weight: 700;
+  border: 1px solid #e2e2e2;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+}
+
+.counter__amount {
+  color: #f81626;
 }
 
 /* Desktop-frist */

@@ -22,6 +22,7 @@ body
 	font-size: 14px
 	background-color: #f8f8f8
 	background-image: url(../img/pattern.png)
+	color: #131313
 
 img
 	max-width: 100%	
@@ -41,14 +42,17 @@ select::-ms-expand
 	display: none
 
 .container
+	max-width: 970px
 	display: table
 	margin: 0 auto
 
 .stack
+	&__title
+		margin-top: 40px
 	&__wrapper
 		max-width: 970px
 		display: table
-		margin-top: 50px
+		margin-top: 40px
 	&__section
 		display: table-cell
 		vertical-align: top
@@ -241,9 +245,34 @@ select::-ms-expand
 
 
 .title
-	max-width: 970px
-	margin: 0 auto
-	text-align: center
+	&__caption
+		font-size: 28px
+		margin: 0 0 15px
+		text-align: center
+	&__wrapper
+		display: table
+		width: 100%
+	&__left,
+	&__right
+		display: table-cell
+		vertical-align: middle
+	&__left
+		width: 300px
+		text-align: center
+	&__right
+		padding-left: 30px
+	&__text
+		margin: 0
+		font-size: 18px
+
+.counter
+	font-size: 18px
+	font-weight: 700
+	border: 1px solid #e2e2e2
+	background-color: rgba(#fff,.8)
+	padding: 5px
+	&__amount
+		color: #f81626
 
 
 //ALWAYS END

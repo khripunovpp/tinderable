@@ -3,8 +3,35 @@
     var allCards = document.querySelectorAll('.cards__item');
     var nope = document.querySelector('.cards__dislike');
     var love = document.querySelector('.cards__like');
+    var viewersInitial = 35087;
+
+    function loader() {
+        setTimeout(function() {
+            $('.stack__loader').fadeOut(200, function() {
+                initCards();
+                counter();
+            })
+        }, 1) //7200
+    }
 
     loader()
+
+    function counter(update) {
+        var options = {
+            useEasing: false,
+            useGrouping: true,
+            separator: '.',
+            decimal: '.',
+        };
+
+        var counter = new CountUp('counter', 0, viewersInitial, 0, 1, options);
+
+        if (update) {
+            counter.update(update)
+        } else {
+            counter.start()
+        }
+    }
 
     function initCards() {
         var newCards = document.querySelectorAll('.cards__item:not(.removed)');
@@ -16,7 +43,9 @@
             currentIndex = index + 1;
         });
 
-        if (currentIndex == 0) congrat()
+        counter(viewersInitial * (currentIndex / 15));
+
+        if (currentIndex == 0) congrat(), counter(237);
 
         tinderContainer.classList.add('loaded');
     }
@@ -26,8 +55,6 @@
 
         hammertime.on('pan', function(event) {
             el.classList.add('moving');
-
-            console.log(event)
 
             if (event.deltaX === 0) return;
             if (event.center.x === 0 && event.center.y === 0) return;
@@ -102,11 +129,4 @@
         })
     }
 
-    function loader() {
-        setTimeout(function() {
-            $('.stack__loader').fadeOut(200, function() {
-                initCards();
-            })
-        }, 1) //7200
-    }
 })();
