@@ -13,12 +13,13 @@
     var dislikes = [];
 
     function loader() {
+        $('.stack__loader').addClass('init')/*чтобы гифка добавилась только после загрузки срипта*/
         setTimeout(function() {
             $('.stack__loader').fadeOut(200, function() {
                 initCards();
                 counter();
             })
-        }, 1) //7200
+        }, 7200) //7200
     }
 
     loader()
