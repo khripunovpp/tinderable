@@ -3,7 +3,14 @@
     var allCards = document.querySelectorAll('.cards__item');
     var nope = document.querySelector('.cards__dislike');
     var love = document.querySelector('.cards__like');
+
     var viewersInitial = 35087;
+    var viewersFinaly = 237;
+
+    var clientWidth = document.body.clientWidth;
+
+    var likes = []
+    var dislikes = [];
 
     function loader() {
         setTimeout(function() {
@@ -37,20 +44,22 @@
         var newCards = document.querySelectorAll('.cards__item:not(.removed)');
         var currentIndex = 0;
 
-        newCards.forEach(function(card, index) {
+        Array.prototype.forEach.call(newCards, function(card, index) {
             card.style.zIndex = allCards.length - index;
             card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(' + 20 * index + 'px)';
+
             currentIndex = index + 1;
+            if (!card.id) card.id = (currentIndex);
         });
 
         counter(viewersInitial * (currentIndex / 15));
 
-        if (currentIndex == 0) congrat(), counter(237);
+        if (currentIndex == 0) congrat(), counter(viewersFinaly);
 
         tinderContainer.classList.add('loaded');
     }
 
-    allCards.forEach(function(el) {
+    Array.prototype.forEach.call(allCards, function(el) {
         var hammertime = new Hammer(el);
 
         hammertime.on('pan', function(event) {
@@ -74,7 +83,7 @@
             tinderContainer.classList.remove('like');
             tinderContainer.classList.remove('dislike');
 
-            var moveOutWidth = document.body.clientWidth;
+            var move = 330;
             var keep = Math.abs(event.deltaX) < 180 && Math.abs(event.velocityX) < 0.5;
 
             event.target.classList.toggle('removed', !keep);
@@ -82,10 +91,19 @@
             if (keep) {
                 event.target.style.transform = '';
             } else {
-                var endX = 330;
+                var endX = move;
+                if (clientWidth <= 991) endX = 991;
                 var toX = event.deltaX > 0 ? endX : -endX;
                 event.target.style.transform = 'translate(' + toX + 'px, 0)';
                 event.target.style.opacity = .6;
+
+                if (event.deltaX > 0) {
+                    likes.push(event.target.id);
+                    clearRemovedStack(likes, event.target.id)
+                } else {
+                    dislikes.push(event.target.id)
+                    clearRemovedStack(dislikes, event.target.id)
+                }
                 initCards();
             }
         });
@@ -94,7 +112,8 @@
     function createButtonListener(love) {
         return function(event) {
             var cards = document.querySelectorAll('.cards__item:not(.removed)');
-            var moveOutWidth = document.body.clientWidth * 1.5;
+            var moveOutWidth = clientWidth * 1.5;
+            var move = 330;
 
             if (!cards.length) return false;
 
@@ -102,13 +121,23 @@
 
             card.classList.add('removed');
 
+            if (clientWidth <= 991) move = 991
+
             if (love) {
-                card.style.transform = 'translate(330px, 0)';
+                card.style.transform = 'translate(' + move + 'px, 0)';
             } else {
-                card.style.transform = 'translate(-330px, 0)';
+                card.style.transform = 'translate(-' + move + 'px, 0)';
             }
 
             card.style.opacity = .6;
+
+            if (love) {
+                likes.push(card.id);
+                clearRemovedStack(likes, card.id)
+            } else {
+                dislikes.push(card.id)
+                clearRemovedStack(dislikes, card.id)
+            }
 
             initCards();
 
@@ -127,6 +156,14 @@
         $('.stack__wrapper').fadeOut(function() {
             $('.stack__congrat').fadeIn()
         })
+    }
+
+    function clearRemovedStack(array, lastId) {
+        array.forEach(function(item) {
+            if (item < lastId) {
+                document.getElementById(item).classList.add('hide')
+            }
+        });
     }
 
 })();
