@@ -54,7 +54,7 @@
 
         counter(viewersInitial * (currentIndex / 15));
 
-        if (currentIndex == 0) congrat(), counter(viewersFinaly);
+        if (currentIndex == 0) congrat(viewersFinaly), counter(viewersFinaly);
 
         tinderContainer.classList.add('loaded');
     }
@@ -152,10 +152,13 @@
     love.addEventListener('click', loveListener);
 
 
-    function congrat() {
-        $('.stack__wrapper').fadeOut(function() {
-            $('.stack__congrat').fadeIn()
-        })
+    function congrat(views) {
+        setTimeout(function() {
+            $('.stack__wrapper, .stack__title').fadeOut(500, function() {
+                $('.congrat__lead b').text(views);
+                $('.stack__congrat').fadeIn(1000);
+            })
+        }, 1000)
     }
 
     function clearRemovedStack(array, lastId) {
@@ -165,5 +168,84 @@
             }
         });
     }
+
+    var _countDown = function(elem) {
+
+        var timerTime = 5000;
+        var minutes = 15;
+
+        var counter = $('.counter__num');
+
+        var value = counter.text();
+
+        var date = new Date();
+        date.setTime(date.getTime() + (minutes * 60 * 1000));
+
+        if ($.cookie('counter') == undefined) {
+            $.cookie('counter', (value), {
+                expires: date
+            });
+        }
+
+        num = $.cookie('counter');
+
+        if ($.cookie('counter') == null) {
+            num = value;
+        }
+
+        counter.text(num);
+
+        if (num < 8) {
+            counter.text(7);
+        }
+
+        var count = counter.text();
+        var setTimer = setInterval(function() {
+
+            if (num > 7) {
+                var rand = random(0, 1);
+                num = num - rand;
+                counter.text(num);
+
+            }
+            $.cookie('counter', (num), {
+                expires: date
+            });
+            if (num < 8) {
+                clearInterval(setTimer);
+                $.cookie('counter', (7), {
+                    expires: date
+                });
+            }
+
+        }, timerTime);
+    }
+
+
+    var _timer = function(timer) {
+        var _currentDate = new Date();
+        var count = 5;
+        var _toDate = new Date(_currentDate.getFullYear(),
+            _currentDate.getMonth(),
+            _currentDate.getDate(),
+            _currentDate.getHours(),
+            _currentDate.getMinutes() + count,
+            1);
+
+        timer.countdown(_toDate, function(e) {
+
+            var $this = $(this);
+            var min = $this.find('.timer__num--min');
+            var sec = $this.find('.timer__num--sec');
+
+            min.text('' + e.strftime('%M'));
+
+            sec.text('' + e.strftime('%S'));
+
+        });
+    }
+
+    _timer($('.timer'));
+
 
 })();
