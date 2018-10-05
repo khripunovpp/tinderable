@@ -19,7 +19,7 @@
                 initCards();
                 counter();
             })
-        }, 7200) //7200
+        }, 1) //7200
     }
 
     loader()

@@ -493,6 +493,7 @@ select::-ms-expand {
   color: #fff;
   padding: 15px 30px 12px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .congrat__btn:hover {
@@ -530,6 +531,7 @@ select::-ms-expand {
   border-radius: 3px;
   background-color: #eaeaea;
   border: 1px solid #c6c6c6;
+  text-align: center;
 }
 
 .timer__colon {
