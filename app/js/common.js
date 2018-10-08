@@ -25,7 +25,7 @@
                 clientWidth >= mobileBreakpoint ? initCards() : counter();
             })
         }, 1) //7200
-        
+
         $('.title__btn').on('click', function(event) {
             event.preventDefault();
             initCards();
@@ -160,9 +160,9 @@
     function congrat(views) {
         setTimeout(function() {
             $('.stack__wrapper, .stack__title').fadeOut(500, function() {
-                $('.congrat__lead b').text(views);
+                $('.congratulation__lead b').text(views);
                 timer($('.timer'));
-                $('.stack__congrat').fadeIn(1000);
+                $('.stack__congratulation').fadeIn(1000);
             })
         }, 1000)
     }
@@ -175,7 +175,7 @@
         });
     }
 
-    var _countDown = function(elem) {
+    var countdown = function(elem) {
 
         var timerTime = 5000;
         var minutes = 15;
@@ -226,7 +226,6 @@
 
         }, timerTime);
     }
-
 
     var timer = function(timer) {
         var _currentDate = new Date();

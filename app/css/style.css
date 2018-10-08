@@ -77,7 +77,7 @@ select::-ms-expand {
   height: 100%;
 }
 
-.title__btn, .congrat__btn {
+.title__btn, .congratulation__btn {
   background-color: #f81626;
   -webkit-box-shadow: 0 4px	0 #b70410;
   box-shadow: 0 4px	0 #b70410;
@@ -94,7 +94,7 @@ select::-ms-expand {
   border: none;
 }
 
-.title__btn:hover, .congrat__btn:hover {
+.title__btn:hover, .congratulation__btn:hover {
   -webkit-transform: translateY(4px);
   -ms-transform: translateY(4px);
   transform: translateY(4px);
@@ -141,7 +141,7 @@ select::-ms-expand {
   bottom: 0px;
 }
 
-.stack__congrat {
+.stack__congratulation {
   display: none;
 }
 
@@ -437,87 +437,87 @@ select::-ms-expand {
   color: #f81626;
 }
 
-.congrat {
+.congratulation {
   text-align: center;
 }
 
-.congrat__top {
+.congratulation__top {
   font-size: 0;
   margin-bottom: 20px;
 }
 
-.congrat__ava {
+.congratulation__ava {
   -webkit-border-radius: 50%;
   border-radius: 50%;
   margin: 0 4px;
   vertical-align: middle;
 }
 
-.congrat__ava--7 {
+.congratulation__ava--7 {
   margin: 0 12px;
 }
 
-.congrat__ava--1, .congrat__ava--13 {
+.congratulation__ava--1, .congratulation__ava--13 {
   opacity: .1;
 }
 
-.congrat__ava--2, .congrat__ava--12 {
+.congratulation__ava--2, .congratulation__ava--12 {
   opacity: .3;
 }
 
-.congrat__ava--3, .congrat__ava--11 {
+.congratulation__ava--3, .congratulation__ava--11 {
   opacity: .3;
 }
 
-.congrat__ava--4, .congrat__ava--10 {
+.congratulation__ava--4, .congratulation__ava--10 {
   opacity: .4;
 }
 
-.congrat__ava--5, .congrat__ava--9 {
+.congratulation__ava--5, .congratulation__ava--9 {
   opacity: .7;
 }
 
-.congrat__title {
+.congratulation__title {
   font-size: 36px;
   color: #2d9ce3;
   margin: 15px 0;
 }
 
-.congrat__lead {
+.congratulation__lead {
   font-size: 22px;
   color: #131313;
   margin: 0;
 }
 
-.congrat__lead b {
+.congratulation__lead b {
   font-size: 22px;
 }
 
-.congrat__text {
+.congratulation__text {
   font-size: 26px;
   font-weight: 700;
   color: #131313;
   margin: 0;
 }
 
-.congrat__bottom {
+.congratulation__bottom {
   background-color: rgba(255, 255, 255, 0.7);
   padding: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
 
-.congrat__signup {
+.congratulation__signup {
   border: 1px solid #eee;
   padding: 20px;
 }
 
-.congrat__btn {
+.congratulation__btn {
   display: table;
   margin: 40px auto 0;
 }
 
-.congrat__timer {
+.congratulation__timer {
   margin-top: 20px;
 }
 
@@ -691,14 +691,14 @@ select::-ms-expand {
   .counter {
     font-size: 15px;
   }
-  .congrat {
+  .congratulation {
     max-width: 320px;
     padding: 0 15px;
   }
-  .congrat__ava {
+  .congratulation__ava {
     display: none;
   }
-  .congrat__wrapper {
+  .congratulation__wrapper {
     padding: 20px;
     background-color: #fff;
     -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
@@ -706,33 +706,33 @@ select::-ms-expand {
     -webkit-border-radius: 5px;
     border-radius: 5px;
   }
-  .congrat__top {
+  .congratulation__top {
     margin-bottom: 16px;
   }
-  .congrat__bottom {
+  .congratulation__bottom {
     background-color: transparent;
     padding: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
   }
-  .congrat__signup {
+  .congratulation__signup {
     border: none;
     padding: 0;
   }
-  .congrat__title {
+  .congratulation__title {
     font-size: 24px;
     margin: 0 0 16px;
   }
-  .congrat__lead {
+  .congratulation__lead {
     font-size: 16px;
   }
-  .congrat__lead b {
+  .congratulation__lead b {
     font-size: 16px;
   }
-  .congrat__text {
+  .congratulation__text {
     font-size: 16px;
   }
-  .congrat__btn {
+  .congratulation__btn {
     margin-top: 20px;
   }
   .timer__title {
