@@ -1,25 +1,35 @@
 (function() {
-    var tinderContainer = document.querySelector('.cards');
+    var cardsStackContainer = document.querySelector('.stack');
     var allCards = document.querySelectorAll('.cards__item');
     var nope = document.querySelector('.cards__dislike');
     var love = document.querySelector('.cards__like');
 
     var viewersInitial = 35087;
-    var viewersFinaly = 237;
+    var viewersFinaly = 232;
 
     var clientWidth = document.body.clientWidth;
+    var mobileBreakpoint = 991;
 
     var likes = []
     var dislikes = [];
 
+    window.addEventListener('resize', function() {
+        clientWidth = document.body.clientWidth;
+        if (clientWidth >= mobileBreakpoint) initCards();
+    })
+
     function loader() {
-        $('.stack__loader').addClass('init')/*чтобы гифка добавилась только после загрузки срипта*/
+        $('.stack__loader').addClass('init') /*чтобы гифка добавилась только после загрузки срипта*/
         setTimeout(function() {
             $('.stack__loader').fadeOut(200, function() {
-                initCards();
-                counter();
+                clientWidth >= mobileBreakpoint ? initCards() : counter();
             })
         }, 1) //7200
+        
+        $('.title__btn').on('click', function(event) {
+            event.preventDefault();
+            initCards();
+        });
     }
 
     loader()
@@ -34,11 +44,7 @@
 
         var counter = new CountUp('counter', 0, viewersInitial, 0, 1, options);
 
-        if (update) {
-            counter.update(update)
-        } else {
-            counter.start()
-        }
+        update ? counter.update(update) : counter.start()
     }
 
     function initCards() {
@@ -57,7 +63,7 @@
 
         if (currentIndex == 0) congrat(viewersFinaly), counter(viewersFinaly);
 
-        tinderContainer.classList.add('loaded');
+        cardsStackContainer.classList.add('loaded');
     }
 
     Array.prototype.forEach.call(allCards, function(el) {
@@ -69,8 +75,8 @@
             if (event.deltaX === 0) return;
             if (event.center.x === 0 && event.center.y === 0) return;
 
-            tinderContainer.classList.toggle('like', event.deltaX > 0);
-            tinderContainer.classList.toggle('dislike', event.deltaX < 0);
+            cardsStackContainer.classList.toggle('like', event.deltaX > 0);
+            cardsStackContainer.classList.toggle('dislike', event.deltaX < 0);
 
             var xMulti = event.deltaX * 0.03;
             var yMulti = event.deltaY / 80;
@@ -81,8 +87,8 @@
 
         hammertime.on('panend', function(event) {
             el.classList.remove('moving');
-            tinderContainer.classList.remove('like');
-            tinderContainer.classList.remove('dislike');
+            cardsStackContainer.classList.remove('like');
+            cardsStackContainer.classList.remove('dislike');
 
             var move = 330;
             var keep = Math.abs(event.deltaX) < 180 && Math.abs(event.velocityX) < 0.5;
@@ -93,7 +99,7 @@
                 event.target.style.transform = '';
             } else {
                 var endX = move;
-                if (clientWidth <= 991) endX = 991;
+                if (clientWidth <= mobileBreakpoint) endX = mobileBreakpoint;
                 var toX = event.deltaX > 0 ? endX : -endX;
                 event.target.style.transform = 'translate(' + toX + 'px, 0)';
                 event.target.style.opacity = .6;
@@ -122,13 +128,11 @@
 
             card.classList.add('removed');
 
-            if (clientWidth <= 991) move = 991
+            if (clientWidth <= mobileBreakpoint) move = mobileBreakpoint
 
-            if (love) {
-                card.style.transform = 'translate(' + move + 'px, 0)';
-            } else {
+            love ?
+                card.style.transform = 'translate(' + move + 'px, 0)' :
                 card.style.transform = 'translate(-' + move + 'px, 0)';
-            }
 
             card.style.opacity = .6;
 
@@ -157,6 +161,7 @@
         setTimeout(function() {
             $('.stack__wrapper, .stack__title').fadeOut(500, function() {
                 $('.congrat__lead b').text(views);
+                timer($('.timer'));
                 $('.stack__congrat').fadeIn(1000);
             })
         }, 1000)
@@ -223,7 +228,7 @@
     }
 
 
-    var _timer = function(timer) {
+    var timer = function(timer) {
         var _currentDate = new Date();
         var count = 5;
         var _toDate = new Date(_currentDate.getFullYear(),
@@ -234,19 +239,14 @@
             1);
 
         timer.countdown(_toDate, function(e) {
-
             var $this = $(this);
             var min = $this.find('.timer__num--min');
             var sec = $this.find('.timer__num--sec');
-
             min.text('' + e.strftime('%M'));
-
             sec.text('' + e.strftime('%S'));
-
         });
     }
 
-    _timer($('.timer'));
 
 
 })();

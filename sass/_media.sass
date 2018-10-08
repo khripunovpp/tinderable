@@ -1,6 +1,7 @@
 @import "bourbon"
 
 @media only screen and (max-width : 991px)
+
 	.header
 		&__inner
 			max-width: 320px
@@ -15,7 +16,6 @@
 				display: none
 
 	.stack
-		overflow: visible
 		padding-bottom: 50px
 		&__section--dislikes,
 		&__section--likes,
@@ -24,17 +24,53 @@
 		&__title,
 		&__wrapper
 			margin-top: 20px
+		&.loaded
+			.cards
+				display: block
+			.title
+				padding: 0
+				&__caption,
+				&__right,
+				&__btn
+					display: none
+				&__inner
+					padding: 0
+					box-shadow: none
+					background-color: transparent
+				&__counter
+					margin-bottom: 0
 
 
 	.title
+		max-width: 320px
+		padding: 0 15px
+		&__inner
+			background-color: #fff
+			box-shadow: 0 0 3px rgba(0,0,0,.1)
+			border-radius: 5px
+			padding: 20px 10px
 		&__caption,
-		&__right
-			display: none
+		&__right,
 		&__wrapper,
 		&__left
 			display: block
+		&__left
+			width: auto
+		&__right
+			padding-left: 0
+			text-align: center
+		&__btn
+			display: table
+			margin: 20px auto 0
+		&__caption
+			line-height: 1.1
+		&__text
+			font-size: 16px
+		&__counter
+			margin-bottom: 20px
 
 	.cards
+		display: none
 		&__list
 			margin: 0
 			height: 320px
@@ -78,3 +114,47 @@
 
 	.counter
 		font-size: 15px
+
+	.congrat
+		max-width: 320px
+		background-color: #fff
+		box-shadow: 0 0 3px rgba(0,0,0,.1)
+		border-radius: 5px
+		padding:54 20px
+		&__ava
+			display: none
+		&__top
+			margin-bottom: 16px
+		&__bottom
+			background-color: transparent
+			padding: 0
+			border-radius: 0
+		&__signup
+			border: none
+			padding: 0
+		&__title
+			font-size: 24px
+			margin: 0 0 16px
+		&__lead
+			font-size: 16px
+			b
+				font-size: 16px
+		&__text
+			font-size: 16px
+		&__btn
+			margin-top: 20px
+
+	.timer
+		&__title
+			font-size: 16px
+			margin: 0 0 16px
+		&__num
+			font-size: 32px
+			width: 55px
+			height: 55px
+			line-height: 55px
+		&__sign
+			font-size: 14px
+		&__colon
+			line-height: 55px
+			margin: 0 10px

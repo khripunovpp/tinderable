@@ -50,7 +50,29 @@ select::-ms-expand
 	display: table
 	margin: 0 auto
 
+.w-page
+	height: 100%
+
+%btn
+	background-color: #f81626
+	box-shadow: 0 4px	0 #b70410
+	border-radius: 2px
+	font-size: 20px
+	line-height: 1
+	text-transform: uppercase
+	font-weight: 700
+	color: #fff
+	padding: 15px 30px 12px
+	cursor: pointer
+	text-decoration: none
+	border: none
+	&:hover
+		transform: translateY(4px)
+		box-shadow: none
+
 .stack
+	overflow: hidden
+	height: 100%	
 	&__title
 		margin-top: 40px
 	&__wrapper
@@ -271,6 +293,9 @@ select::-ms-expand
 	&__text
 		margin: 0
 		font-size: 18px
+	&__btn
+		@extend %btn
+		display: none
 
 .counter
 	font-size: 18px
@@ -327,29 +352,17 @@ select::-ms-expand
 		background-color: rgba(#fff, .7)
 		padding: 10px
 		border-radius: 10px
-	&__inner
+	&__signup
 		border: 1px solid #eee
 		padding: 25px
 	&__btn
+		@extend %btn
 		display: table
 		margin: 40px auto 0
-		background-color: #f81626
-		box-shadow: 0 4px	0 #b70410
-		border-radius: 2px
-		font-size: 20px
-		line-height: 1
-		text-transform: uppercase
-		font-weight: 700
-		color: #fff
-		padding: 15px 30px 12px
-		cursor: pointer
-		text-decoration: none
-		&:hover
-			transform: translateY(4px)
-			box-shadow: none
+	&__timer
+		margin-top: 20px
 
 .timer
-	margin-top: 20px
 	&__title
 		margin: 0 0 40px
 		font-size: 22px

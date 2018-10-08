@@ -73,6 +73,40 @@ select::-ms-expand {
   margin: 0 auto;
 }
 
+.w-page {
+  height: 100%;
+}
+
+.title__btn, .congrat__btn {
+  background-color: #f81626;
+  -webkit-box-shadow: 0 4px	0 #b70410;
+  box-shadow: 0 4px	0 #b70410;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 20px;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  padding: 15px 30px 12px;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+
+.title__btn:hover, .congrat__btn:hover {
+  -webkit-transform: translateY(4px);
+  -ms-transform: translateY(4px);
+  transform: translateY(4px);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.stack {
+  overflow: hidden;
+  height: 100%;
+}
+
 .stack__title {
   margin-top: 40px;
 }
@@ -390,6 +424,10 @@ select::-ms-expand {
   font-size: 18px;
 }
 
+.title__btn {
+  display: none;
+}
+
 .counter {
   font-size: 18px;
   font-weight: 700;
@@ -473,7 +511,7 @@ select::-ms-expand {
   border-radius: 10px;
 }
 
-.congrat__inner {
+.congrat__signup {
   border: 1px solid #eee;
   padding: 25px;
 }
@@ -481,30 +519,9 @@ select::-ms-expand {
 .congrat__btn {
   display: table;
   margin: 40px auto 0;
-  background-color: #f81626;
-  -webkit-box-shadow: 0 4px	0 #b70410;
-  box-shadow: 0 4px	0 #b70410;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  font-size: 20px;
-  line-height: 1;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #fff;
-  padding: 15px 30px 12px;
-  cursor: pointer;
-  text-decoration: none;
 }
 
-.congrat__btn:hover {
-  -webkit-transform: translateY(4px);
-  -ms-transform: translateY(4px);
-  transform: translateY(4px);
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.timer {
+.congrat__timer {
   margin-top: 20px;
 }
 
@@ -562,7 +579,6 @@ select::-ms-expand {
     display: none;
   }
   .stack {
-    overflow: visible;
     padding-bottom: 50px;
   }
   .stack__section--dislikes, .stack__section--likes, .stack__hand {
@@ -571,11 +587,61 @@ select::-ms-expand {
   .stack__title, .stack__wrapper {
     margin-top: 20px;
   }
-  .title__caption, .title__right {
+  .stack.loaded .cards {
+    display: block;
+  }
+  .stack.loaded .title {
+    padding: 0;
+  }
+  .stack.loaded .title__caption, .stack.loaded .title__right, .stack.loaded .title__btn {
     display: none;
   }
-  .title__wrapper, .title__left {
+  .stack.loaded .title__inner {
+    padding: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: transparent;
+  }
+  .stack.loaded .title__counter {
+    margin-bottom: 0;
+  }
+  .title {
+    max-width: 320px;
+    padding: 0 15px;
+  }
+  .title__inner {
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 20px 10px;
+  }
+  .title__caption, .title__right, .title__wrapper, .title__left {
     display: block;
+  }
+  .title__left {
+    width: auto;
+  }
+  .title__right {
+    padding-left: 0;
+    text-align: center;
+  }
+  .title__btn {
+    display: table;
+    margin: 20px auto 0;
+  }
+  .title__caption {
+    line-height: 1.1;
+  }
+  .title__text {
+    font-size: 16px;
+  }
+  .title__counter {
+    margin-bottom: 20px;
+  }
+  .cards {
+    display: none;
   }
   .cards__list {
     margin: 0;
@@ -631,5 +697,63 @@ select::-ms-expand {
   }
   .counter {
     font-size: 15px;
+  }
+  .congrat {
+    max-width: 320px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  .congrat__ava {
+    display: none;
+  }
+  .congrat__top {
+    margin-bottom: 16px;
+  }
+  .congrat__bottom {
+    background-color: transparent;
+    padding: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+  }
+  .congrat__signup {
+    border: none;
+    padding: 0;
+  }
+  .congrat__title {
+    font-size: 24px;
+    margin: 0 0 16px;
+  }
+  .congrat__lead {
+    font-size: 16px;
+  }
+  .congrat__lead b {
+    font-size: 16px;
+  }
+  .congrat__text {
+    font-size: 16px;
+  }
+  .congrat__btn {
+    margin-top: 20px;
+  }
+  .timer__title {
+    font-size: 16px;
+    margin: 0 0 16px;
+  }
+  .timer__num {
+    font-size: 32px;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+  }
+  .timer__sign {
+    font-size: 14px;
+  }
+  .timer__colon {
+    line-height: 55px;
+    margin: 0 10px;
   }
 }
