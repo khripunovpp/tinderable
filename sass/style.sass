@@ -120,10 +120,75 @@ select::-ms-expand
 		margin-left: -68px
 		width: 136px
 		height: 38px
-		border: none
-		background-color: transparent
-		background-image: url(../img/swipe-icon.png)
+	&.like
+		.cards__dislike
+			opacity: .2
+	&.dislike
+		.cards__like
+			opacity: .2
 
+
+.hand
+	&__hand,
+	&__left,
+	&__right
+		display: inline-block
+		vertical-align: middle
+		transition: all .4s
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: 50% 50%
+	&__hand
+		background-image: url(../img/hand-icon.png)
+		width: 38px
+		height: 38px
+		animation: hand 5s infinite both
+	&__left
+		background-image: url(../img/arrow-icon.png)
+		width: 43px
+		height: 20px
+		animation: left-arrow 5s infinite both
+	&__right
+		background-image: url(../img/arrow-icon.png)
+		width: 43px
+		height: 20px
+		transform: scale(-1,1)
+		animation: right-arrow 5s infinite
+
+@keyframes left-arrow
+	0%
+		transform: translateX(0)
+	50%
+		transform: translateX(0)
+	75%
+		transform: translateX(-15px)
+		opacity: 1
+	100%
+		transform: translateX(-15px)
+		opacity: 0
+
+@keyframes hand
+	0%
+		transform: translateX(0)
+	25%
+		transform: translateX(15px)
+	50%
+		transform: translateX(0)
+	75%
+		transform: translateX(-15px)
+	100%
+		transform: translateX(0)
+
+@keyframes right-arrow
+	0%
+		transform: 0 scale(-1,1)
+	25%
+		transform: translateX(15px) scale(-1,1)
+	75%
+		opacity: 1
+	100%
+		transform: translateX(15px) scale(-1,1)
+		opacity: 0
 
 .cards
 	position: relative
@@ -146,6 +211,7 @@ select::-ms-expand
 		border-radius: 50%
 		border: none
 		cursor: pointer
+		transition: all .5s
 		&::before
 			content: '\e906'
 			@extend %icon
@@ -334,7 +400,7 @@ select::-ms-expand
 	&__title
 		font-size: 36px
 		color: #2d9ce3
-		margin: 15px 0
+		margin: 15px 0 10px
 	&__lead
 		font-size: 22px
 		color: #131313
@@ -362,7 +428,7 @@ select::-ms-expand
 
 .timer
 	&__title
-		margin: 0 0 40px
+		margin: 0 0 30px
 		font-size: 22px
 		color: #131313
 	&__section
