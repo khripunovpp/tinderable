@@ -23,7 +23,7 @@
         clientWidth >= mobileBreakpoint ? initCards() : counter();
         setTimeout(function() {
             $('.stack__loader').fadeOut(200)
-        }, 7200) //7200
+        }, 1) //7200
         $('.title__btn').on('click', function(event) {
             event.preventDefault();
             initCards();
@@ -51,7 +51,7 @@
 
         Array.prototype.forEach.call(newCards, function(card, index) {
             card.style.zIndex = allCards.length - index;
-            card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(' + 20 * index + 'px)';
+            card.style.transform = 'scale(' + (20 - index) / 20 + ') translate3d(0, ' + 20 * index + 'px, 0)';
 
             currentIndex = index + 1;
             if (!card.id) card.id = (currentIndex);
@@ -80,7 +80,7 @@
             var yMulti = event.deltaY / 80;
             var rotate = xMulti * yMulti;
 
-            event.target.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
+            event.target.style.transform = 'translate3d(' + event.deltaX + 'px, ' + event.deltaY + 'px, 0) rotate(' + rotate + 'deg)';
         });
 
         hammertime.on('panend', function(event) {
@@ -99,7 +99,7 @@
                 var endX = move;
                 if (clientWidth <= mobileBreakpoint) endX = mobileBreakpoint;
                 var toX = event.deltaX > 0 ? endX : -endX;
-                event.target.style.transform = 'translate(' + toX + 'px, 0)';
+                event.target.style.transform = 'translate3d(' + toX + 'px, 0, 0)';
                 event.target.style.opacity = .6;
 
                 if (event.deltaX > 0) {
@@ -129,8 +129,8 @@
             if (clientWidth <= mobileBreakpoint) move = mobileBreakpoint
 
             love ?
-                card.style.transform = 'translate(' + move + 'px, 0)' :
-                card.style.transform = 'translate(-' + move + 'px, 0)';
+                card.style.transform = 'translate3d(' + move + 'px, 0, 0)' :
+                card.style.transform = 'translate3d(-' + move + 'px, 0, 0)';
 
             card.style.opacity = .6;
 
