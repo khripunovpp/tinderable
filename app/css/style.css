@@ -926,3 +926,12 @@ select::-ms-expand {
     margin: 0 10px;
   }
 }
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .stack.like .cards__dislike {
+    opacity: 1;
+  }
+  .stack.dislike .cards__like {
+    opacity: 1;
+  }
+}
