@@ -105,7 +105,7 @@ select::-ms-expand {
 .stack {
   overflow: hidden;
   height: 100%;
-  margin-top: 20px;
+  padding-top: 20px;
 }
 
 .stack__wrapper {
@@ -428,6 +428,8 @@ select::-ms-expand {
 .card__img img {
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .card__img::after, .card__img::before {

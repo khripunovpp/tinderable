@@ -23,7 +23,7 @@
         clientWidth >= mobileBreakpoint ? initCards() : counter();
         setTimeout(function() {
             $('.stack__loader').fadeOut(200)
-        }, 1) //7200
+        }, 7200) //7200
         $('.title__btn').on('click', function(event) {
             event.preventDefault();
             initCards();
